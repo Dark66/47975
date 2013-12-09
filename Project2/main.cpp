@@ -1,6 +1,6 @@
-// Philip Calderon
-// CSC-17A - 47975
-// December 9, 2013
+/// Philip Calderon
+/// CSC-17A - 47975
+/// December 9, 2013
 
 #include <iostream>
 #include <cmath>

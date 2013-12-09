@@ -6,7 +6,7 @@ using namespace std;
 ///Constructor
 Paycheck::Paycheck(float r, int h)
 : rate(r), hours(h)
-{on your choice
+{
 }
 
 ///Rate Mutator
