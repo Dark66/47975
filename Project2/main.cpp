@@ -1,3 +1,6 @@
+// Philip Calderon
+// CSC-17A - 47975
+// December 9, 2013
 
 #include <iostream>
 #include <cmath>
@@ -86,20 +89,25 @@ void menu()
 {
     for(;;)
     {
-        ///Decide what to doZ
+        ///Decide you want to do what to do
         int choice;
 
+        /// Menu
         cout << "What would you like to do?";
         cout << endl;
+
         ///Caculate The Budget
         cout << "1. Calculate Budget";
         cout << endl;
+
         ///Calculate The Loan Amounts
         cout << "2. Loan Calculator";
         cout << endl;
+
         ///Calculate The Savings over time
         cout << "3. Savings Calculator";
         cout << endl;
+
         ///Exit
         cout << "4. Exit";
         cout << endl;netpay=0,
@@ -127,8 +135,6 @@ void Budget()
 {
 
     ///Declare and Initalize
-
-
     float otherincome = 0;
     float temp        = 0;
 
@@ -155,7 +161,7 @@ void Budget()
         Paycheck pay(customer[i].rate,customer[i].hours);
         cout << setprecision(2) << fixed << showpoint;
 
-    ///Calculate salary
+        ///Calculate salary
 
         if (customer[i].hours >= 0 && customer[i].hours <= 40)
         {
@@ -172,7 +178,7 @@ void Budget()
         }
         else if (customer[i].hours <= 60)
         {
-        /// Calculate Work Week with Overtime
+            /// Calculate Work Week with Overtime
 
             customer[i].pay = pay.getPaywOT(customer[i].rate,customer[i].hours);
 
@@ -187,7 +193,8 @@ void Budget()
         }
         else if (customer[i].hours > 60 && customer[i].hours <= 168)
         {
-        ///Calculte Work Week with Overtime and Double Time
+
+            ///Calculte Work Week with Overtime and Double Time
             customer[i].pay = pay.getpaywDT(customer[i].rate,customer[i].hours);
 
             cout << "pay $";
@@ -201,22 +208,23 @@ void Budget()
         }
         else
         {
-        ///Start again
+
+            ///Start again
             cout << " You either don't work or your a lazy person.";
             cout << endl;
         }
 
-    ///Calculate other income
+        ///Calculate other income
 
         cout << "Please enter income from SSI or pention.";
         cout << endl;
 
         cin >> temp;
 
-    ///Validation
+        ///Validation looop
         while (temp<0)
         {
-        ///Start Again
+            ///Start Again
             cout << "Enter an amount 0 or greater.";
             cout << endl;
             cin >> temp;
@@ -227,10 +235,10 @@ void Budget()
         cout << endl;
         cin >> temp;
 
-    ///Validation loop
+        ///Validation loop
         while (temp<0)
         {
-        ///Start again
+            ///Start again
             cout << "Enter an amount 0 or greater.";
             cout << endl;
             cin >> temp;
@@ -246,7 +254,7 @@ void Budget()
         cout << customer[i].income;
         cout << endl;
 
-    ///Declare names of expenses
+        ///Declare names of all expenses
 
         const short NUM_EXPENSES=7;
         char Expenses[NUM_EXPENSES][STRING_SIZE] =
@@ -263,7 +271,7 @@ void Budget()
 
         startingValues(Expenses,cost,NUM_EXPENSES);
 
-    ///Enter what your honest monthly pay was this month
+        ///Enter what your honest monthly pay was this month
 
         cout << "Enter the amount you paid.";
         cout << endl;
@@ -280,28 +288,31 @@ void Budget()
             customer[i].expense += cost[j][1];
         }
 
-    ///Calculate expenses
+        ///Calculate expenses
 
         cout << "You expenses this month were $";
         cout << customer[i].expense;
         cout << endl;
 
         customer[i].netpay = net(customer[i].income, customer[i].expense);
+
         cout << customer[i].name;
         cout << " your Net Income is $";
         cout << customer[i].netpay;
         cout << " this month";
         cout << endl;
+
         customer[i].expense = 0;
         customer[i].netpay = 0;
 
-    ///Calculate next months budget
+        ///Calculate next months budget
         cout << "Your next months budget should look like this:";
         cout << endl;
         cout << "Expense\t\t\tCost";
         cout << endl;
         cout << "----------------------------";
         cout << endl;
+
         for(short j=0; j<NUM_EXPENSES; j++)
         {
             cost[j][0]=(cost[j][0]+cost[j][1])/2;
@@ -312,8 +323,9 @@ void Budget()
             customer[i].expense+=cost[j][0];
         }
 
-    ///Calculate next months expected Net income
+        ///Calculate next months expected Net income
         customer[i].netpay = net(customer[i].income,customer[i].expense);
+
         cout << customer[i].name;
         cout << " your Net Income might be $";
         cout << customer[i].netpay;
@@ -365,6 +377,7 @@ void LoanCalculator()
     cout<<pay.getTotalInterest();
     cout<<endl;
 }
+
 void SavingInterestCal()
 {
     ///Calculate Savings over time
@@ -420,6 +433,7 @@ void startingValues(char array[][STRING_SIZE],float cost[][COL],short ne)
     cout << endl;
     cout << "----------------------------";
     cout << endl;
+
     for(short i=0; i<ne; i++)
     {
         cout<<array[i];
