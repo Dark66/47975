@@ -75,7 +75,7 @@ int main()
             case'n': cout << "Exit Stage Left! No Right! Launched!!!";
                      cout << endl;
                      break;
-            //Fuck you I no work for you
+            //Start again no exceptions
             default: cout << "Decide! Ok... No";
                      cout << endl;
         }
@@ -290,18 +290,22 @@ void Budget()
 
         ///Calculate expenses
 
+        ///Tells what expenses the month were
         cout << "You expenses this month were $";
         cout << customer[i].expense;
         cout << endl;
 
+        ///Calculates the netpay using income and expense
         customer[i].netpay = net(customer[i].income, customer[i].expense);
 
+        ///Tells the Next income
         cout << customer[i].name;
         cout << " your Net Income is $";
         cout << customer[i].netpay;
-        cout << " this month";
+        cout << " this month.";
         cout << endl;
 
+        ///Sets expense and netpay to 0 so no compiling build-up
         customer[i].expense = 0;
         customer[i].netpay = 0;
 
@@ -313,6 +317,7 @@ void Budget()
         cout << "----------------------------";
         cout << endl;
 
+        ///Calculates cost
         for(short j=0; j<NUM_EXPENSES; j++)
         {
             cost[j][0]=(cost[j][0]+cost[j][1])/2;
@@ -326,7 +331,10 @@ void Budget()
         ///Calculate next months expected Net income
         customer[i].netpay = net(customer[i].income,customer[i].expense);
 
+        ///Tells Name of customer
         cout << customer[i].name;
+
+        ///Tells what the Net Income might be the following month
         cout << " your Net Income might be $";
         cout << customer[i].netpay;
         cout << " next month";
